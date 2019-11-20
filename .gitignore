@@ -1,0 +1,7 @@
+/node_modules
+.idea/backEnd.iml
+.idea/misc.xml
+.idea/modules.xml
+.idea/workspace.xml
+.idea/vcs.xml
+/config/config.env
