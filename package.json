@@ -1,5 +1,5 @@
 {
-  "name": "Backend Application",
+  "name": "Backend_Application",
   "version": "1.0.0",
   "description": "A Backend Application, showscasing very important Backend Concepts",
   "main": "server.js",

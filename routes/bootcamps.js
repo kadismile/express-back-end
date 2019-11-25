@@ -5,9 +5,12 @@ getBootcamp,
 getBootcamps,
 createBootcamp,
 deleteBootcamp,
-updateBootcamp} = require('../controllers/bootcampController');
+updateBootcamp,
+getBootcamsInRadius} = require('../controllers/bootcampController');
 
 
+router.route('/radius/:zipcode/:distance')
+  .get(getBootcamsInRadius);
 
 router.route('/')
   .get(getBootcamps)
