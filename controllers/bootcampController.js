@@ -31,12 +31,11 @@ exports.getBootcamp = asyncHandler(async (req, res, next) => {
 //@desc    Create new bootcamp
 //route    POST  /api/v1/bootcamp/create//@access  Private
 exports.createBootcamp = asyncHandler(async (req, res, next) => {
-  console.log("Body ", req.body);
-    const bootcamp = await Bootcamp.create(req.body);
-    res.status(201).json({
-      success: true,
-      data: bootcamp
-    })
+  const bootcamp = await Bootcamp.create(req.body);
+  res.status(201).json({
+    success: true,
+    data: bootcamp
+  })
  
 });
 

@@ -1,5 +1,5 @@
 const express = require('express');
-const dotenv = require('dotenv');
+const dotenv = require('dotenv').config();
 const morgan = require('morgan')
 const colors = require('colors')
 const errorHandler = require('./middleware/errors')
@@ -9,7 +9,7 @@ const connectDb = require('./config/db')
 let { books, bootcamps } = require('./routes/');
 let { logger } = require('./middleware/logger');
 
-dotenv.config({ path: './config/config.env' });
+/*dotenv.config({ path: './config/config.env' });*/
 //connect to database
 connectDb();
 
