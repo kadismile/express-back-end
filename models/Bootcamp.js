@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
+const slugify = require('slugify');
 
 const BootcampSchema = new mongoose.Schema({
   name: {
     type: String,
-    require: [true, 'Please add a name'],
+    required: [true, 'Please add a name'],
     unique: true,
     trim: true,
     maxlength: [50, 'cant be more than 5o characters']
@@ -11,7 +12,7 @@ const BootcampSchema = new mongoose.Schema({
   slug: String,
   description: {
     type: String,
-    require: [true, 'please add a description'],
+    required: [true, 'please add a description'],
     maxlength: [500, 'Description cannot be more than 500 characters']
   },
   website: {
@@ -100,6 +101,12 @@ const BootcampSchema = new mongoose.Schema({
 {
   toJSON: { virtuals: true },
   toObject: { virtuals: true }
-})
+});
+
+//Hooks for BootCamps
+BootcampSchema.pre('save', function (next) {
+  this.slug = slugify(this.name, { lower: true });
+  next();
+});
 
 module.exports = mongoose.model('Bootcamp', BootcampSchema)

@@ -1,10 +1,10 @@
 const ErrorResponse = require('../utils/erorResponse')
 
 const errorHandler = (err, req, res,next)=> {
-  let error = {...err}
+  let error = {...err};
   error.message = err.message;
 
-  console.log("ERROR ", err)
+  console.log("ERROR ", err);
 
   if (err.name === 'CastError') {
     const message = `Resource not found with id of ${err.value}`;
