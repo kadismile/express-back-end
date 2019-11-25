@@ -1,8 +1,18 @@
 const mongoose = require('mongoose');
+const randomstring = require("randomstring");
 const slugify = require('slugify');
-const geocoder = require('../utils/geocoder')
+const geocoder = require('../utils/geocoder');
 
 const BootcampSchema = new mongoose.Schema({
+  _id: {
+    type: String,
+    default: function() {
+      if (this.title) {
+        return randomstring.generate();
+      }
+      return null;
+    }
+  },
   name: {
     type: String,
     required: [true, 'Please add a name'],
