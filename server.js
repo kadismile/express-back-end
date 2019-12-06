@@ -1,4 +1,6 @@
 const express = require('express');
+const path = require('path');
+const fileUpload = require('express-fileupload');
 const dotenv = require('dotenv').config();
 const morgan = require('morgan')
 const colors = require('colors')
@@ -21,6 +23,10 @@ app.use(express.json())
 if (process.env.NODE_ENVIRONMENT === 'development') {
   app.use(morgan('dev'))
 }
+
+// file upload
+app.use(fileUpload());
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api/v1/bootcamps', bootcamps);
 app.use('/api/v1/courses', courses);
