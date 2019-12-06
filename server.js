@@ -6,7 +6,7 @@ const errorHandler = require('./middleware/errors')
 const connectDb = require('./config/db')
 
 //ROUTE FILES
-let { courses, bootcamps } = require('./routes/');
+let { courses, bootcamps, tests } = require('./routes/');
 let { logger } = require('./middleware/logger');
 
 /*dotenv.config({ path: './config/config.env' });*/
@@ -24,6 +24,7 @@ if (process.env.NODE_ENVIRONMENT === 'development') {
 
 app.use('/api/v1/bootcamps', bootcamps);
 app.use('/api/v1/courses', courses);
+app.use('/api/v1/test', tests);
 app.use(errorHandler)
 
 
