@@ -6,7 +6,7 @@ getBootcamps,
 createBootcamp,
 deleteBootcamp,
 updateBootcamp,
-getBootcamsInRadius} = require('../controllers/bootcampController');
+getBootcamsInRadius, getTest} = require('../controllers/bootcampController');
 
 //include Other resource routers
 const courseRouter = require('./courses');
@@ -18,13 +18,16 @@ router.route('/radius/:zipcode/:distance')
   .get(getBootcamsInRadius);
 
 router.route('/')
-  .get(getBootcamps)
-  .post(createBootcamp);
+  /*.get(getBootcamps)
+  .post(createBootcamp);*/
 
 router.route('/:id')
   .get(getBootcamp)
   .put(updateBootcamp)
   .delete(deleteBootcamp);
+
+router.route('/test')
+  .get(getTest);
 
 
 module.exports = router;

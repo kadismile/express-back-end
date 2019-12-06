@@ -12,7 +12,7 @@ const errorHandler = (err, req, res,next)=> {
   }
   
   if (err.code === 11000) {
-    const message = 'Duplicate field value Entered'
+    const message = 'Duplicate field vusalue Entered'
     error = new ErrorResponse(message, 400)
   }
 
