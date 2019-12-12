@@ -8,7 +8,7 @@ const errorHandler = require('./middleware/errors')
 const connectDb = require('./config/db')
 
 //ROUTE FILES
-let { courses, bootcamps, tests } = require('./routes/');
+let { courses, bootcamps, tests, auth } = require('./routes/');
 
 connectDb();
 
@@ -28,6 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api/v1/bootcamps', bootcamps);
 app.use('/api/v1/courses', courses);
 app.use('/api/v1/test', tests);
+app.use('/api/v1/auth', auth);
 app.use(errorHandler);
 
 
