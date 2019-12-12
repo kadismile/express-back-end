@@ -9,18 +9,15 @@ const connectDb = require('./config/db')
 
 //ROUTE FILES
 let { courses, bootcamps, tests } = require('./routes/');
-let { logger } = require('./middleware/logger');
 
-/*dotenv.config({ path: './config/config.env' });*/
-//connect to database
 connectDb();
 
 const app = express();
 
 //Body parser
-app.use(express.json())
+app.use(express.json());
 
-if (process.env.NODE_ENVIRONMENT === 'development') {
+if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'))
 }
 
@@ -31,7 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api/v1/bootcamps', bootcamps);
 app.use('/api/v1/courses', courses);
 app.use('/api/v1/test', tests);
-app.use(errorHandler)
+app.use(errorHandler);
 
 
 
