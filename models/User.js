@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 const randomstring = require("randomstring");
 
 const UserSchema = new mongoose.Schema({
-  _id: {
+ /* _id: {
     type: String,
     default: function() {
       if (this.email) {
@@ -13,7 +13,7 @@ const UserSchema = new mongoose.Schema({
       }
       return null;
     }
-  },
+  },*/
   name: {
     type: String,
     required: [true, 'Please add a name']
